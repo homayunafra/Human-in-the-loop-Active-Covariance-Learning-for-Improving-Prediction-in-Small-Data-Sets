@@ -1,1 +1,2 @@
 # Human-in-the-loop-Active-Covariance-Learning-for-Improving-Prediction-in-Small-Data-Sets
+This repository contains code for expert knowledge elicitation in sparse linear regression where the user can provide feedback about the covariates (pairwise similarities of regression coefficients) with the goal of improving the predictions.
