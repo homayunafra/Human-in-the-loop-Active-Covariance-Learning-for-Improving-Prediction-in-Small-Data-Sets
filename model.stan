@@ -27,16 +27,18 @@ transformed parameters{
   C = exp(-0.5 * (rep_matrix(diagonal(C), M) + rep_matrix(diagonal(C)', M)) + C);
   for(m in 1:M) C[m, m] = C[m, m] + 1e-06;
   
-  q = 1.0 ./ (1.0 + exp(W_f*gamma - threshold));
+  // q = 1.0 ./ (1.0 + exp(W_f*gamma - threshold));
+  q = -(W_f*gamma - threshold);
 }
 model{
   tau ~ inv_gamma(a_tau, b_tau);
   
   threshold ~ normal(threshold_mean, threshold_mean/2);
   
-  gamma ~ normal(1.0,0.5); // normal(mean,std) and multi_normal(mean,(co)variance): in normal we give std and in multi-normal we give (co)variance
+  gamma ~ normal(1.0,0.5);
   
-  f ~ bernoulli(q);
+  print(q);
+  f ~ bernoulli_logit(q);
 
   {
     matrix[N,N] S;

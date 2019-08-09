@@ -45,8 +45,6 @@ feedback_generator <- function(pairIndex, feedbackTable)
       f = c(f,0)
     }
   }
-  # feedbackTable[pairIndex] <- 0
-  # return(sim = sim, dis = dis, feedbackTable = feedbackTable)
   return(list(sim = sim_vec, dis = dis_vec, feedback = f))
 }
 
@@ -124,4 +122,5 @@ compute_utilities <- function(fitted_model, feedback_list, feature_descriptors, 
   stopCluster(c1)
   
   return(unlist(parOutput))
+  # return(Utility)
 }
