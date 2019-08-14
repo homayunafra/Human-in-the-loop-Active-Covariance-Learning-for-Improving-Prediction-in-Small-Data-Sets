@@ -37,8 +37,8 @@ model{
   
   gamma ~ normal(1.0,0.5);
   
-  print(q);
-  f ~ bernoulli_logit(q);
+  // f ~ bernoulli(q);
+  f ~ bernoulli_logit(q); // bernoulli_logit is more stable than bernoulli
 
   {
     matrix[N,N] S;

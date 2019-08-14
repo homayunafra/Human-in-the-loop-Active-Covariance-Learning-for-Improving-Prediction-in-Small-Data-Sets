@@ -29,20 +29,15 @@ b_tau = 4
 mseMatrix = matrix(0,num_iterations,num_methods)
 
 set.seed(1234)
-for(numRun in 1:5){
+for(numRun in 1:50){
+  # model_data              = simulated_data(numRun,N,M)
   data_address = paste("./Data/data_",numRun,".RData",sep="")
   load(data_address)
-  x_tr                  = model_data$x_tr
-  y_tr                  = model_data$y_tr
-  x_te                  = model_data$x_te
-  y_te                  = model_data$y_te
-  feature_descriptors   = model_data$fd
-  # syn_data                = simulated_data(numRun,N,M)
-  # x_tr                    = syn_data$modelx
-  # y_tr                    = syn_data$modely
-  # x_te                    = syn_data$modelxte
-  # y_te                    = syn_data$modelyte
-  # feature_descriptors     = syn_data$fd
+  x_tr                    = model_data$x_tr
+  y_tr                    = model_data$y_tr
+  x_te                    = model_data$x_te
+  y_te                    = model_data$y_te
+  feature_descriptors     = model_data$fd
   c_star                  = model_data$c_star
   beta_star               = model_data$beta_star
   mse_gt                  = model_data$mse_gt
